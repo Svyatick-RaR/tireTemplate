@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Шиномонтаж: цены, запись онлайн, адрес</title>
+    <meta
+      name="description"
+      content="Сезонная замена шин, балансировка, ремонт проколов. Рассчитайте стоимость и запишитесь онлайн."
+    />
+    <meta property="og:title" content="Шиномонтаж: цены и запись онлайн" />
+    <meta
+      property="og:description"
+      content="Рассчитайте стоимость и запишитесь на удобное время."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="main_image.png" type="image/png">
+  </head>
+  <body>
+    <header class="head">
+      <div class="wrap head-in">
+        <a class="brand" href="#home"
+          ><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
+            <circle
+              cx="14"
+              cy="14"
+              r="12"
+              fill="none"
+              stroke="#1F2933"
+              stroke-width="4"
+            />
+            <circle cx="14" cy="14" r="4" fill="#E8590C" /></svg
+          ><span data-cfg="name"></span
+        ></a>
+        <nav id="nav" aria-label="Разделы сайта">
+          <a href="#home">Главная</a><a href="#services">Услуги и цены</a
+          ><a href="#calc">Калькулятор</a><a href="#booking">Запись</a
+          ><a href="#reviews">Отзывы</a><a href="#contacts">Контакты</a>
+        </nav>
+        <a class="tel" data-href="tel"><span data-cfg="phone"></span></a>
+        <button class="btn sm hide-m" type="button" data-book>
+          Записаться
+        </button>
+        <button
+          class="burger"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav"
+          aria-label="Открыть меню"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section id="home">
+        <div class="wrap hero">
+          <div>
+            <h1>Шиномонтаж без очередей</h1>
+            <p class="lead">
+              Узнайте цену заранее и запишитесь на удобное время. Сезонная
+              замена, балансировка и ремонт проколов за 30–60 минут.
+            </p>
+            <p class="actions">
+              <button class="btn" type="button" data-book>Записаться</button
+              ><a class="btn ghost" href="#calc">Рассчитать стоимость</a>
+            </p>
+            <ul class="facts" id="facts"></ul>
+          </div>
+          <div class="tire" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section id="services" class="alt">
+        <div class="wrap">
+          <h2>Услуги и цены</h2>
+          <p class="lead">
+            Цена за комплект из четырёх колёс, если не указано иначе.
+          </p>
+          <div
+            class="tablewrap"
+            tabindex="0"
+            role="region"
+            aria-label="Таблица цен"
+          >
+            <table id="priceTable"></table>
+          </div>
+          <p class="note" id="priceNote"></p>
+        </div>
+      </section>
+
+      <section id="calc">
+        <div class="wrap">
+          <h2>Калькулятор стоимости</h2>
+          <p class="lead">
+            Выберите авто и услуги, и мы покажем примерную цену.
+          </p>
+          <div class="calc">
+            <div class="panel">
+              <div class="f">
+                <label for="carType">Тип автомобиля</label
+                ><select id="carType"></select>
+              </div>
+              <div class="f">
+                <label for="radius">Радиус дисков</label
+                ><select id="radius"></select>
+              </div>
+              <fieldset>
+                <legend>Услуги</legend>
+                <div id="calcServices"></div>
+              </fieldset>
+            </div>
+            <div class="result">
+              <p>Примерная стоимость</p>
+              <p class="sum" id="sum" aria-live="polite">от 0 ₽</p>
+              <p class="note">
+                Точную цену назовёт мастер после осмотра колёс.
+              </p>
+              <button class="btn" id="calcBook" type="button">
+                Записаться на эту услугу
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="booking" class="dark">
+        <div class="wrap center">
+          <h2>Онлайн-запись</h2>
+          <p class="lead">
+            Выберите дату и время. Мы подтвердим запись по телефону или в
+            мессенджере.
+          </p>
+          <button class="btn big" type="button" data-book>Записаться</button>
+        </div>
+      </section>
+
+      <section id="why" class="alt">
+        <div class="wrap">
+          <h2>Почему к нам едут снова</h2>
+          <div class="grid" id="whyList"></div>
+        </div>
+      </section>
+
+      <section id="reviews">
+        <div class="wrap">
+          <h2>Отзывы клиентов</h2>
+          <div class="grid" id="reviewList"></div>
+        </div>
+      </section>
+
+      <section id="contacts" class="alt">
+        <div class="wrap two">
+          <div>
+            <h2>Контакты</h2>
+            <p><strong>Адрес</strong><br /><span data-cfg="address"></span></p>
+            <p>
+              <strong>Режим работы</strong><br /><span data-cfg="hours"></span>
+            </p>
+            <p>
+              <strong>Телефон</strong><br /><a data-href="tel"
+                ><span data-cfg="phone"></span
+              ></a>
+            </p>
+            <p class="actions">
+              <a class="btn" data-href="tel">Позвонить</a
+              ><a
+                class="btn ghost"
+                data-href="route"
+                target="_blank"
+                rel="noopener"
+                >Построить маршрут</a
+              >
+            </p>
+          </div>
+          <iframe id="map" title="Карта: как нас найти" loading="lazy"></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer class="dark">
+      <div class="wrap foot">
+        <p>
+          <strong data-cfg="name"></strong><br /><span data-cfg="address"></span
+          ><br /><a data-href="tel"><span data-cfg="phone"></span></a>
+        </p>
+        <p>
+          Нажимая «Отправить» в форме записи, вы соглашаетесь на обработку
+          персональных данных.<br />Демонстрационный шаблон: все данные
+          вымышлены.
+        </p>
+      </div>
+    </footer>
+
+    <nav class="mbar" aria-label="Быстрая связь">
+      <a data-href="tel">Позвонить</a
+      ><a data-href="tg" target="_blank" rel="noopener">Telegram</a
+      ><a data-href="wa" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+
+    <dialog id="dlg" aria-labelledby="dlgTitle">
+      <form id="form" novalidate>
+        <div class="dh">
+          <h2 id="dlgTitle">Запись на шиномонтаж</h2>
+          <button type="button" class="x" aria-label="Закрыть окно" data-close>
+            &times;
+          </button>
+        </div>
+        <div class="f">
+          <label for="f-name">Имя</label
+          ><input id="f-name" name="name" autocomplete="name" /><span
+            class="err"
+          ></span>
+        </div>
+        <div class="f">
+          <label for="f-phone">Телефон</label
+          ><input
+            id="f-phone"
+            name="phone"
+            type="tel"
+            autocomplete="tel"
+            placeholder="+7 900 000-00-00"
+          /><span class="err"></span>
+        </div>
+        <div class="f">
+          <label for="f-car">Марка и модель авто</label
+          ><input
+            id="f-car"
+            name="car"
+            placeholder="Например, Toyota Camry"
+          /><span class="err"></span>
+        </div>
+        <div class="f">
+          <label for="f-service">Услуга</label
+          ><select id="f-service" name="service"></select>
+        </div>
+        <div class="row">
+          <div class="f">
+            <label for="f-date">Дата</label
+            ><input id="f-date" name="date" type="date" /><span
+              class="err"
+            ></span>
+          </div>
+          <div class="f">
+            <label for="f-time">Время</label
+            ><select id="f-time" name="time"></select
+            ><span class="err"></span>
+          </div>
+        </div>
+        <div class="f">
+          <label for="f-comment">Комментарий</label
+          ><textarea id="f-comment" name="comment" rows="2"></textarea>
+        </div>
+        <div class="f chk">
+          <label
+            ><input type="checkbox" name="consent" /> Согласен на обработку
+            персональных данных</label
+          ><span class="err"></span>
+        </div>
+        <button class="btn full" type="submit">Отправить</button>
+      </form>
+      <div id="ok" hidden>
+        <h2>Заявка отправлена</h2>
+        <p>Мы свяжемся с вами и подтвердим время.</p>
+        <button class="btn" type="button" data-close>Закрыть</button>
+      </div>
+    </dialog>
+    <script src="script.js"></script>
+  </body>
+</html>
